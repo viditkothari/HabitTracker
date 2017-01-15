@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2017. This creation of Vidit Kothari (c) cannot be reproduced or modified or resell without prior written consent
+  ~~~~~~~~~~~~~~~~~~~~~-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_habit_item"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="#00AAFF">
+
+    <TextView
+        android:id="@+id/habit_slno"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:gravity="center_vertical"
+        android:textAlignment="center"
+        tools:text="999"/>
+
+    <ImageView
+        android:layout_width="01dp"
+        android:layout_height="32dp"
+        android:background="#DDDDDD"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/habit_name"
+        android:layout_width="120dp"
+        android:layout_height="56dp"
+        android:padding="8dp"
+        tools:text="Medicine"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:gravity="center_vertical"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:layout_width="01dp"
+        android:layout_height="32dp"
+        android:background="#DDDDDD"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/habit_date"
+        android:layout_width="192dp"
+        android:layout_height="56dp"
+        android:padding="8dp"
+        tools:text="Jan 13 2017 - 23:09"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:gravity="center_vertical"
+        android:textAlignment="center"/>
+
+</LinearLayout>
