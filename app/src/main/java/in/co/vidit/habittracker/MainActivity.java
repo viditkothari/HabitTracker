@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         ContentValues habit_row=new ContentValues();
         habit_row.put(HabitsEntry.COL_HABIT,habitName);
         habit_row.put(HabitsEntry.COL_TIMESTAMP,timestamp);
-
+        timestamp.getClass();
         long newRowId = db.insert(HabitsEntry.TABLE_NAME, null, habit_row);
         Log.i("Row inserted!", " Returned ID:" + newRowId);
     }

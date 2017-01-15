@@ -45,28 +45,31 @@ public class TrackingHistory extends AppCompatActivity {
             int habitColIndex = cursor.getColumnIndex(HabitsEntry.COL_HABIT);
             int timeColIndex = cursor.getColumnIndex(HabitsEntry.COL_TIMESTAMP);
 
+
             // Iterate through all the returned rows in the cursor
             while (cursor.moveToNext()) {
+                int tempID = cursor.getInt(idColIndex);
+
+                String tempName="";
+                switch (cursor.getInt(habitColIndex)){
+                    case 0:tempName = "Water"; break;
+                    case 1:tempName = "Medicine"; break;
+                }
+
+                String tempDate = cursor.getString(timeColIndex);
                 // Use that index to extract the String or Int value of the word
                 // at the current row the cursor is on.
-                Log.i("col ID: ","" + cursor.getInt(idColIndex) + " | " + getHabitName(cursor.getInt(habitColIndex)) + " | " + cursor.getString(timeColIndex) );
-                habits.add(new Habit(cursor.getInt(idColIndex),getHabitName(cursor.getInt(habitColIndex)),"Jan 77" /*cursor.getString(timeColIndex)*/));
+
+                habits.add(new Habit(tempID,tempName,tempDate));
                 // Display the values from each column of the current row in the cursor in the TextView
             }
         } finally {
             // Closing the cursor when you're done reading from it. This releases all its resources and makes it invalid.
             cursor.close();
         }
-        if(habits==null) {
-            habits.add(new Habit(77," hjghj ","Porgo"));
+        if(habits==null || habits.isEmpty()) {
+            habits.add(new Habit(26," Vidit ","Nov 26, 1991 : 06:15"));
         }
         return habits;
-    }
-    private String getHabitName(int habitno){
-        switch (habitno){
-            case 0:return "Water";
-            case 1:return "Medicine";
-        }
-        return "Water";
     }
 }
