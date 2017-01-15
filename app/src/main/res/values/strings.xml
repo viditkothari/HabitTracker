@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">HabitTracker</string>
+    <string name="water">Water</string>
+    <string name="medicine">Medicine</string>
+    <string name="tracking_history">Tracking History</string>
+    <string name="slno">Sl #</string>
+    <string name="habit">Habit</string>
+    <string name="timestamp">Date/Time</string>
 </resources>

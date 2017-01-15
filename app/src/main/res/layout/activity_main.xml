@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:text="Water"
+                android:text="@string/water"
                 android:textSize="24sp"/>
             <Button
                 android:id="@+id/btn_water"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:text="Medicine"
+                android:text="@string/medicine"
                 android:textSize="24sp"/>
             <Button
                 android:id="@+id/btn_medic"
@@ -91,7 +91,7 @@
         android:layout_height="56dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="40dp"
-        android:text="Tracking History"
+        android:text="@string/tracking_history"
         android:background="@color/colorAccent"
         android:textColor="@android:color/white"/>
 

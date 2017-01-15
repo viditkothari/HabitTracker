@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /*insertRow(HabitsEntry.WATER,DateFormat.getDateTimeInstance().format(new Date()));*/
-                insertRow(HabitsEntry.WATER,(new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date())).toString().trim());
+                insertRow(HabitsEntry.WATER,(new SimpleDateFormat("dd/MM/yy HH:mm:ss").format(new Date())).toString().trim());
                 // Log.v("btn_water clicked!",HabitsEntry.WATER + " | " + DateFormat.getTimeInstance().format(new Date()));
                 Log.v("btn_water clicked!",HabitsEntry.WATER + " | " + new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date()));
             }
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btns.get(1).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                insertRow(HabitsEntry.MEDICINE,(new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date())).toString().trim());
+                insertRow(HabitsEntry.MEDICINE,(new SimpleDateFormat("dd/MM/yy HH:mm:ss").format(new Date())).toString().trim());
                 // Log.v("btn_medic clicked!",DateFormat.getDateTimeInstance().format(new Date()));
                 Log.v("btn_medic clicked!",HabitsEntry.MEDICINE + " | " + (new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date())).toString().trim());
             }

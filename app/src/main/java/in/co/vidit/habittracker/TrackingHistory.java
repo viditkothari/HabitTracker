@@ -51,8 +51,8 @@ public class TrackingHistory extends AppCompatActivity {
 
                 String tempName="";
                 switch (cursor.getInt(habitColIndex)){
-                    case 0:tempName = "Water"; break;
-                    case 1:tempName = "Medicine"; break;
+                    case 0:tempName = getResources().getString(R.string.water); break;
+                    case 1:tempName = getResources().getString(R.string.medicine); break;
                 }
 
                 String tempDate = cursor.getString(timeColIndex);
@@ -67,7 +67,7 @@ public class TrackingHistory extends AppCompatActivity {
             cursor.close();
         }
         if(habits==null || habits.isEmpty()) {
-            habits.add(new Habit(26,"No Value!","Nov 26, 1991 06:15"));
+            habits.add(new Habit(0,"Habit","Date/Time"));
         }
         return habits;
     }
