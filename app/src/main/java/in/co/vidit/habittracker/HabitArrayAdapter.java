@@ -7,10 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import in.co.vidit.habittracker.Habit;
 
 import java.util.ArrayList;
 
@@ -32,11 +29,10 @@ public class HabitArrayAdapter extends ArrayAdapter<Habit> {
         tvs.add((TextView) convertView.findViewById(R.id.habit_date));
 
         Habit habitObject=getItem(position);
-        int vmID;
-        String vmHabitName, vmDateTime;
+        String vmID, vmHabitName, vmDateTime;
 
         if(habitObject!=null){
-            vmID=habitObject.getmID();
+            vmID=habitObject.getmID()+"";
             vmHabitName=habitObject.getmHabitName();
             vmDateTime=habitObject.getmDateTime();
 
@@ -53,11 +49,6 @@ public class HabitArrayAdapter extends ArrayAdapter<Habit> {
             else
                 convertView.findViewById(R.id.ll_habit_item).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorMedic));
             }
-        /*
-            catch (Exception e){
-                Log.e("Exception found: ", "while accessing ID from arralist in ArrayAdapter.");
-            }*/
-
         return convertView;
     }
 }

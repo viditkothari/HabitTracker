@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -68,7 +67,7 @@ public class TrackingHistory extends AppCompatActivity {
             cursor.close();
         }
         if(habits==null || habits.isEmpty()) {
-            habits.add(new Habit(26," Vidit ","Nov 26, 1991 : 06:15"));
+            habits.add(new Habit(26,"No Value!","Nov 26, 1991 06:15"));
         }
         return habits;
     }

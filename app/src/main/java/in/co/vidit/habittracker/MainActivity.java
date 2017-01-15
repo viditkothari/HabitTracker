@@ -12,7 +12,7 @@ import android.widget.Button;
 import in.co.vidit.habittracker.data.HabitTrackerContract.HabitsEntry;
 import in.co.vidit.habittracker.data.HabitsDBHelper;
 
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -35,16 +35,19 @@ public class MainActivity extends AppCompatActivity {
         btns.get(0).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                insertRow(HabitsEntry.WATER,DateFormat.getDateTimeInstance().format(new Date()));
-                Log.v("btn_water clicked!",HabitsEntry.WATER + " | " + DateFormat.getDateTimeInstance().format(new Date()));
+                /*insertRow(HabitsEntry.WATER,DateFormat.getDateTimeInstance().format(new Date()));*/
+                insertRow(HabitsEntry.WATER,(new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date())).toString().trim());
+                // Log.v("btn_water clicked!",HabitsEntry.WATER + " | " + DateFormat.getTimeInstance().format(new Date()));
+                Log.v("btn_water clicked!",HabitsEntry.WATER + " | " + new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date()));
             }
         }); // End of 'setOnClickListener' for 'btn_water'
 
         btns.get(1).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                insertRow(HabitsEntry.MEDICINE,DateFormat.getDateTimeInstance().format(new Date()));
-                Log.v("btn_medic clicked!",DateFormat.getDateTimeInstance().format(new Date()));
+                insertRow(HabitsEntry.MEDICINE,(new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date())).toString().trim());
+                // Log.v("btn_medic clicked!",DateFormat.getDateTimeInstance().format(new Date()));
+                Log.v("btn_medic clicked!",HabitsEntry.MEDICINE + " | " + (new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date())).toString().trim());
             }
         }); // End of 'setOnClickListener' for 'btn_medic'
 
@@ -55,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("btn_tracker clicked!"," :) ");
             }
         }); // End of 'setOnClickListener' for 'btn_tracker'
-
     }
 
     private void insertRow(int habitName, String timestamp){
