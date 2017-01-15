@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -35,10 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btns.get(0).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                /*insertRow(HabitsEntry.WATER,DateFormat.getDateTimeInstance().format(new Date()));*/
                 insertRow(HabitsEntry.WATER,(new SimpleDateFormat("dd/MM/yy HH:mm:ss").format(new Date())).toString().trim());
-                // Log.v("btn_water clicked!",HabitsEntry.WATER + " | " + DateFormat.getTimeInstance().format(new Date()));
-                Log.v("btn_water clicked!",HabitsEntry.WATER + " | " + new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date()));
             }
         }); // End of 'setOnClickListener' for 'btn_water'
 
@@ -46,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 insertRow(HabitsEntry.MEDICINE,(new SimpleDateFormat("dd/MM/yy HH:mm:ss").format(new Date())).toString().trim());
-                // Log.v("btn_medic clicked!",DateFormat.getDateTimeInstance().format(new Date()));
-                Log.v("btn_medic clicked!",HabitsEntry.MEDICINE + " | " + (new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date())).toString().trim());
             }
         }); // End of 'setOnClickListener' for 'btn_medic'
 
@@ -55,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(),TrackingHistory.class));
-                Log.v("btn_tracker clicked!"," :) ");
             }
         }); // End of 'setOnClickListener' for 'btn_tracker'
     }
@@ -67,6 +60,5 @@ public class MainActivity extends AppCompatActivity {
         habit_row.put(HabitsEntry.COL_TIMESTAMP,timestamp);
         timestamp.getClass();
         long newRowId = db.insert(HabitsEntry.TABLE_NAME, null, habit_row);
-        Log.i("Row inserted!", " Returned ID:" + newRowId);
     }
 }

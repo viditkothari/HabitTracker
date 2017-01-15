@@ -2,7 +2,6 @@ package in.co.vidit.habittracker;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,10 +38,6 @@ public class HabitArrayAdapter extends ArrayAdapter<Habit> {
             tvs.get(0).setText(vmID);
             tvs.get(1).setText(vmHabitName);
             tvs.get(2).setText(vmDateTime);
-
-            Log.i("ID: ",vmID+"");
-            Log.i("Name: ",vmHabitName+"");
-            Log.i("Date: ",vmDateTime+"");
 
             if(habitObject.getmHabitName().equalsIgnoreCase("Water"))
                 convertView.findViewById(R.id.ll_habit_item).setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWater));

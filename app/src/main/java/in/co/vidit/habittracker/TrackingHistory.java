@@ -17,15 +17,16 @@ import in.co.vidit.habittracker.data.HabitsDBHelper;
 
 public class TrackingHistory extends AppCompatActivity {
 
-    ArrayList<Habit> habits=new ArrayList<>();
+    ArrayList<Habit> habits = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracking_history);
-        ((ListView)findViewById(R.id.lv_habit_list)).setAdapter(new HabitArrayAdapter(this,readData()));
+        ((ListView) findViewById(R.id.lv_habit_list)).setAdapter(new HabitArrayAdapter(this, readData()));
     }
 
-    private ArrayList<Habit> readData(){
+    private ArrayList<Habit> readData() {
         HabitsDBHelper mDBHelper = new HabitsDBHelper(this);
         SQLiteDatabase db = mDBHelper.getReadableDatabase();
 
@@ -36,7 +37,7 @@ public class TrackingHistory extends AppCompatActivity {
         };
 
         // Perform a query on the pets table
-        Cursor cursor = db.query(HabitsEntry.TABLE_NAME,projection,null,null,null,null,null);
+        Cursor cursor = db.query(HabitsEntry.TABLE_NAME, projection, null, null, null, null, null);
 
         try {
             // Figure out the index of each column
@@ -49,25 +50,29 @@ public class TrackingHistory extends AppCompatActivity {
             while (cursor.moveToNext()) {
                 int tempID = cursor.getInt(idColIndex);
 
-                String tempName="";
-                switch (cursor.getInt(habitColIndex)){
-                    case 0:tempName = getResources().getString(R.string.water); break;
-                    case 1:tempName = getResources().getString(R.string.medicine); break;
+                String tempName = "";
+                switch (cursor.getInt(habitColIndex)) {
+                    case 0:
+                        tempName = getResources().getString(R.string.water);
+                        break;
+                    case 1:
+                        tempName = getResources().getString(R.string.medicine);
+                        break;
                 }
 
                 String tempDate = cursor.getString(timeColIndex);
                 // Use that index to extract the String or Int value of the word
                 // at the current row the cursor is on.
 
-                habits.add(new Habit(tempID,tempName,tempDate));
+                habits.add(new Habit(tempID, tempName, tempDate));
                 // Display the values from each column of the current row in the cursor in the TextView
             }
         } finally {
             // Closing the cursor when you're done reading from it. This releases all its resources and makes it invalid.
             cursor.close();
         }
-        if(habits==null || habits.isEmpty()) {
-            habits.add(new Habit(0,"Habit","Date/Time"));
+        if (habits == null || habits.isEmpty()) {
+            habits.add(new Habit(0, "Habit", "Date/Time"));
         }
         return habits;
     }
